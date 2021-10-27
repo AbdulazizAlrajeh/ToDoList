@@ -22,6 +22,16 @@ class MainFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val imageView :ImageView = view.findViewById(R.id.todolist_imageView)
+        val displayMyList: Button = view.findViewById(R.id.viewmylist_button)
+
+        displayMyList.setOnClickListener(){
+            findNavController().navigate(R.id.action_mainFragment_to_displayListFragment)
+        }
+    }
 
 
 }

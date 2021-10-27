@@ -20,8 +20,8 @@
 
     <EditText
         android:id="@+id/titleadd_edittext"
-        android:layout_width="265dp"
-        android:layout_height="48dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="64dp"
@@ -37,8 +37,8 @@
 
     <EditText
         android:id="@+id/descriptionadd_edittext"
-        android:layout_width="265dp"
-        android:layout_height="160dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="64dp"
@@ -53,12 +53,13 @@
 
     <EditText
         android:id="@+id/deadlineadd_edittext"
-        android:layout_width="265dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="64dp"
         android:background="@drawable/shape_text"
+        android:editable="false"
         android:ems="10"
         android:hint="Deadline"
         android:inputType="textPersonName"
@@ -67,6 +68,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descriptionadd_edittext" />
+
 
     <Button
         android:id="@+id/saveaddd_button"
@@ -79,7 +81,7 @@
         android:backgroundTint="#005F73"
         android:text="Save ToDo"
         android:textColor="#94D2BD"
-        app:cornerRadius="50"
+        app:cornerRadius="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
