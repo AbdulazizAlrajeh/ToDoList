@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_todolist"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.todolist.views.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_displayListFragment"
+            app:destination="@id/displayListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/displayListFragment"
+        android:name="com.example.todolist.views.DisplayListFragment"
+        android:label="fragment_display_list"
+        tools:layout="@layout/fragment_display_list" >
+        <action
+            android:id="@+id/action_displayListFragment_to_addListFragment"
+            app:destination="@id/addListFragment" />
+        <action
+            android:id="@+id/action_displayListFragment_to_detailsItemFragment"
+            app:destination="@id/detailsItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsItemFragment"
+        android:name="com.example.todolist.views.DetailsItemFragment"
+        android:label="fragment_details_item"
+        tools:layout="@layout/fragment_details_item" >
+        <action
+            android:id="@+id/action_detailsItemFragment_to_editItemFragment"
+            app:destination="@id/editItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addListFragment"
+        android:name="com.example.todolist.views.AddListFragment"
+        android:label="fragment_add_list"
+        tools:layout="@layout/fragment_add_list" />
+    <fragment
+        android:id="@+id/editItemFragment"
+        android:name="com.example.todolist.views.EditItemFragment"
+        android:label="fragment_edit_item"
+        tools:layout="@layout/fragment_edit_item" />
+</navigation>
