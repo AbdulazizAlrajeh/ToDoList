@@ -44,5 +44,9 @@
         android:id="@+id/editItemFragment"
         android:name="com.example.todolist.views.EditItemFragment"
         android:label="fragment_edit_item"
-        tools:layout="@layout/fragment_edit_item" />
+        tools:layout="@layout/fragment_edit_item" >
+        <action
+            android:id="@+id/action_editItemFragment_to_displayListFragment"
+            app:destination="@id/displayListFragment" />
+    </fragment>
 </navigation>

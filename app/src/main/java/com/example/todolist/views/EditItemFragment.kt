@@ -37,27 +37,29 @@ class EditItemFragment : Fragment() {
         var statusEditSpinner:Spinner = view.findViewById(R.id.edit_spinner)
         var saveEditButtonView :Button = view.findViewById(R.id.saveedit_button)
         var deleteButtonView :Button = view.findViewById(R.id.deleteedit_button)
-        /*toDoViewModel.selectedItemMutableLiveData.observe(viewLifecycleOwner, Observer {
+        toDoViewModel.selectedItemMutableLiveData.observe(viewLifecycleOwner, Observer {
             it?.let {
                 titleDetailsItemTextView.text = it.title
                 descriptionDetailsTextView.text = it.description
                 dataDeadlineDetailsTextView.text = it.deadline
-              //  statusEditSpinner.prompt = it.status
+                    //statusEditSpinner.prompt = it.status
 
                 selectItemModel = it
             }
-        })*/
+        })
 
-       /* saveEditButtonView.setOnClickListener {
+
+        saveEditButtonView.setOnClickListener {
             toDoViewModel.updateItem(selectItemModel)
-        }*/
+            findNavController().navigate(R.id.action_editItemFragment_to_displayListFragment)
+        }
 
 
 
-       /* deleteButtonView.setOnClickListener {
+        deleteButtonView.setOnClickListener {
             toDoViewModel.deleteItem(selectItemModel)
-            findNavController().popBackStack()
-        }*/
+            findNavController().navigate(R.id.action_editItemFragment_to_displayListFragment)
+        }
     }
 
 }
