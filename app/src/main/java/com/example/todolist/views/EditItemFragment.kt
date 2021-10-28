@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.annotation.StringRes
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.example.todolist.R
 import com.example.todolist.database.ItemModel
@@ -42,14 +44,21 @@ class EditItemFragment : Fragment() {
                 titleDetailsItemTextView.text = it.title
                 descriptionDetailsTextView.text = it.description
                 dataDeadlineDetailsTextView.text = it.deadline
-                    //statusEditSpinner.prompt = it.status
+
+                // Convert Array to list , take array from file Strings.xml
+                val res = resources.getStringArray(R.array.status).toList()
+
+                statusEditSpinner.setSelection(res.indexOf(it.status))
 
                 selectItemModel = it
+
             }
         })
 
 
         saveEditButtonView.setOnClickListener {
+
+            selectItemModel.title = titleDetailsItemTextView.text.toString()
             toDoViewModel.updateItem(selectItemModel)
             findNavController().navigate(R.id.action_editItemFragment_to_displayListFragment)
         }

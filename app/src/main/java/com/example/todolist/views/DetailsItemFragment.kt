@@ -48,6 +48,8 @@ class DetailsItemFragment : Fragment() {
 
         editButtonViewDetails.setOnClickListener {
 
+            toDoViewModel.selectedItemMutableLiveData.postValue(selectItemModel)
+
             findNavController().navigate(R.id.action_detailsItemFragment_to_editItemFragment)
         }
 
