@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="Background_button">#005F73</color>
     <color name="background">#005F73</color>
+    <color name="backgroundOpen">#0A9396</color>
+    <color name="backgroundInProcess">#AE2012</color>
+    <color name="backgroundDone">#FFD60A</color>
 </resources>

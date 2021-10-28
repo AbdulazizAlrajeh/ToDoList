@@ -22,7 +22,7 @@ class ToDoRepository(context: Context) {
     suspend fun addItem (itemModel: ItemModel) = toDoDao.addItem(itemModel)
     suspend fun deleteItem(itemModel: ItemModel) = toDoDao.deleteItem(itemModel)
     suspend fun updateItem (itemModel: ItemModel) = toDoDao.updateItem(itemModel)
-
+     fun filterStutus (stutus:String) = toDoDao.filterStatus(stutus)
 
     companion object{
         private var instance :ToDoRepository? = null

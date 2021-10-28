@@ -59,6 +59,9 @@ class EditItemFragment : Fragment() {
         saveEditButtonView.setOnClickListener {
 
             selectItemModel.title = titleDetailsItemTextView.text.toString()
+            selectItemModel.description = descriptionDetailsTextView.text.toString()
+            selectItemModel.deadline = dataDeadlineDetailsTextView.text.toString()
+            selectItemModel.status = statusEditSpinner.selectedItem.toString()
             toDoViewModel.updateItem(selectItemModel)
             findNavController().navigate(R.id.action_editItemFragment_to_displayListFragment)
         }

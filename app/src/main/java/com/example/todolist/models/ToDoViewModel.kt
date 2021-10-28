@@ -1,5 +1,7 @@
 package com.example.todolist.models
 
+import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,6 +14,8 @@ class ToDoViewModel: ViewModel() {
     private val todoRepository = ToDoRepository.get()
 
     var toDoItem = todoRepository.getItem()
+
+    var status: String = "All"
 
     var selectedItemMutableLiveData = MutableLiveData<ItemModel>()
 
@@ -32,5 +36,20 @@ class ToDoViewModel: ViewModel() {
         viewModelScope.launch {
             todoRepository.deleteItem(itemModel)
         }
+    }
+
+    fun getItem() : LiveData<List<ItemModel>>{
+
+        if(status.equals("All"))
+        {
+            return todoRepository.getItem()
+        } else
+        {
+            Log.d("items", status)
+            return todoRepository.filterStutus(status)
+
+        }
+
+
     }
 }

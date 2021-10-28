@@ -1,10 +1,13 @@
 package com.example.todolist.adapters
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolist.R
@@ -18,6 +21,8 @@ class ToDoListAdapter(val listToDo:List<ItemModel>,val viewModel: ToDoViewModel)
             val titleItemTextView :TextView = view.findViewById(R.id.title_display_textView)
             val descriptionItemTextView:TextView = view.findViewById(R.id.description_display_textView)
             val dateDeadlineTextView :TextView = view.findViewById(R.id.data_display_textView)
+            val statusTextView:TextView = view.findViewById(R.id.status_textView)
+            val cardView :CardView = view.findViewById(R.id.item_cardview)
 
         }
 
@@ -36,6 +41,14 @@ class ToDoListAdapter(val listToDo:List<ItemModel>,val viewModel: ToDoViewModel)
         holder.titleItemTextView.text = positionItem.title
         holder.descriptionItemTextView.text = positionItem.description
         holder.dateDeadlineTextView.text = positionItem.deadline
+        holder.statusTextView.text = positionItem.status
+        var status = holder.statusTextView.text.toString()
+
+        when (status) {
+            "Open" -> holder.cardView.setBackgroundColor(Color.parseColor("#0A9396"))
+            "In process" -> holder.cardView.setBackgroundColor(Color.parseColor("#FFD60A"))
+            "Done" -> holder.cardView.setBackgroundColor(Color.parseColor("#AE2012"))
+        }
 
         holder.itemView.setOnClickListener{
             viewModel.selectedItemMutableLiveData.postValue(positionItem)

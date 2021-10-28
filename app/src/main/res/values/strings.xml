@@ -8,4 +8,10 @@
         <item>In process</item>
         <item>Done</item>
     </array>
+    <array name="filter_status">
+        <item>All</item>
+        <item>Open</item>
+        <item>In process</item>
+        <item>Done</item>
+    </array>
 </resources>
