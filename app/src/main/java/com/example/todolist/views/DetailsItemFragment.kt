@@ -33,15 +33,19 @@ class DetailsItemFragment : Fragment() {
         var titleDetailsItemTextView :TextView = view.findViewById(R.id.titleedit_textView)
         var descriptionDetailsTextView :TextView = view.findViewById(R.id.descriptionedit_textView)
         var dataDeadlineDetailsTextView:TextView = view.findViewById(R.id.deadlineedit_textView)
-        var statusDatiailsTextView :TextView = view.findViewById(R.id.status_textview)
+        var statusDetiailsTextView :TextView = view.findViewById(R.id.status_textview)
         var editButtonViewDetails:Button = view.findViewById(R.id.edittododetails_button)
+        var createdDateTextView:TextView = view.findViewById(R.id.createddata_textView)
+        var categoryTextView:TextView = view.findViewById(R.id.cotegory_textView)
 
         toDoViewModel.selectedItemMutableLiveData.observe(viewLifecycleOwner, Observer {
             it?.let {
+                categoryTextView.text = it.category
                 titleDetailsItemTextView.text = it.title
                 descriptionDetailsTextView.text = it.description
-                dataDeadlineDetailsTextView.text = it.deadline
-                statusDatiailsTextView.text = it.status
+                dataDeadlineDetailsTextView.text = " Deadline Date: ${ it.deadline }"
+                createdDateTextView.text = "created Date: ${ it.dataCreated }"
+                statusDetiailsTextView.text = it.status
                 selectItemModel = it
             }
         })

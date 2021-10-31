@@ -17,7 +17,14 @@ interface ToDoDao {
     @Update
     suspend fun updateItem (itemModel: ItemModel)
 
-  @Query("SELECT * FROM itemmodel WHERE status= :status")
+  @Query("SELECT * FROM itemmodel WHERE status= :status AND category = :category")
+  fun filters(status:String,category:String):LiveData<List<ItemModel>>
+
+  @Query("SELECT * FROM itemmodel WHERE category= :category")
+  fun filterCategory(category:String):LiveData<List<ItemModel>>
+
+  @Query("SELECT * FROM itemmodel WHERE status = :status")
   fun filterStatus(status:String):LiveData<List<ItemModel>>
+
 
 }

@@ -48,6 +48,7 @@ class DisplayListFragment : Fragment() {
             }
         })
 
+
         addFloatingActionButton.setOnClickListener(){
             findNavController().navigate(R.id.action_displayListFragment_to_addListFragment)
 

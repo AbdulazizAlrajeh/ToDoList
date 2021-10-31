@@ -5,7 +5,9 @@
     android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.EditItemFragment" >
+    android:background="#005F73"
+    android:backgroundTint="#6671C9DC"
+    tools:context=".views.EditItemFragment">
 
     <Spinner
         android:id="@+id/edit_spinner"

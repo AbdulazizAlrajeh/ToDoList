@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -19,6 +20,7 @@ import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
+
 
 
 class AddListFragment : Fragment() {
@@ -40,13 +42,14 @@ class AddListFragment : Fragment() {
         val addTitle:EditText = view.findViewById(R.id.titleadd_edittext)
         val addDescription:EditText = view.findViewById(R.id.descriptionadd_edittext)
         val addDeadline :EditText = view.findViewById(R.id.deadlineadd_edittext)
+        var addCategoryToList:Spinner = view.findViewById(R.id.category_spinner)
         val addSave :Button = view.findViewById(R.id.saveaddd_button)
 
 
         val datePicker = DatePickerDialog(requireActivity())
         datePicker.setOnDateSetListener { view, year, month, dayOfMonth ->
 
-            addDeadline.setText("$dayOfMonth / $month / $year")
+            addDeadline.setText("$year/$month/$dayOfMonth")
         }
 
 
@@ -55,17 +58,20 @@ class AddListFragment : Fragment() {
 
             datePicker.show()
         }
+        var format = SimpleDateFormat("yyyy/mm/dd")
+        var currentDate = format.format(Date())
 
         addSave.setOnClickListener(){
             var titleName = addTitle.text.toString()
             var description = addDescription.text.toString()
-            var deadline = "${datePicker.datePicker.dayOfMonth} / ${datePicker.datePicker.month} / ${datePicker.datePicker.year}"
+            var deadline = "${datePicker.datePicker.year}/${datePicker.datePicker.month}/${datePicker.datePicker.dayOfMonth}"
+            var category = addCategoryToList.selectedItem.toString()
+            var currentDate = currentDate
 
-
-
-            toDoViewModel.addItem(titleName,description,deadline)
+            toDoViewModel.addItem(titleName,description,deadline,category,currentDate)
             findNavController().popBackStack()
 
         }
     }
+
 }

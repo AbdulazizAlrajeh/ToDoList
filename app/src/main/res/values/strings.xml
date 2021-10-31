@@ -14,4 +14,17 @@
         <item>In process</item>
         <item>Done</item>
     </array>
+
+    <array name="category">
+        <item>Home</item>
+        <item>Work</item>
+        <item>Training</item>
+    </array>
+
+    <array name="categoryfiltter">
+        <item>All</item>
+        <item>Home</item>
+        <item>Work</item>
+        <item>Training</item>
+    </array>
 </resources>

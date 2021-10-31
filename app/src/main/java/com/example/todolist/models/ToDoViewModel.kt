@@ -16,12 +16,13 @@ class ToDoViewModel: ViewModel() {
     var toDoItem = todoRepository.getItem()
 
     var status: String = "All"
+    var category: String = "All"
 
     var selectedItemMutableLiveData = MutableLiveData<ItemModel>()
 
-    fun addItem(title:String, description:String, dateDeadline: String){
+    fun addItem(title:String, description:String, dateDeadline: String,category:String,dataCreated:String){
         viewModelScope.launch {
-            todoRepository.addItem(ItemModel(title, description, dateDeadline))
+            todoRepository.addItem(ItemModel(title, description, dateDeadline,category,dataCreated))
         }
     }
 
@@ -40,16 +41,23 @@ class ToDoViewModel: ViewModel() {
 
     fun getItem() : LiveData<List<ItemModel>>{
 
-        if(status.equals("All"))
+        if(status.equals("All") && category.equals("All"))
         {
             return todoRepository.getItem()
-        } else
+        } else if (status.equals("All"))
         {
             Log.d("items", status)
-            return todoRepository.filterStutus(status)
+            return todoRepository.filterCategory(category)
 
         }
+        else if (category.equals("All")){
+            return todoRepository.filterStatus(status)
 
+        }else
+        {
+            return todoRepository.filters(status,category)
+        }
 
     }
 }
+

@@ -13,6 +13,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todolist.R
 import com.example.todolist.database.ItemModel
 import com.example.todolist.models.ToDoViewModel
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class ToDoListAdapter(val listToDo:List<ItemModel>,val viewModel: ToDoViewModel)
     :RecyclerView.Adapter<ToDoListAdapter.ViewHolderItem> (){
@@ -43,6 +48,19 @@ class ToDoListAdapter(val listToDo:List<ItemModel>,val viewModel: ToDoViewModel)
         holder.dateDeadlineTextView.text = positionItem.deadline
         holder.statusTextView.text = positionItem.status
         var status = holder.statusTextView.text.toString()
+
+
+
+        var currentDate = Date()
+        var deadline = positionItem.deadline
+        val format = SimpleDateFormat("yyyy/MM/dd")
+        val date = format.parse(positionItem.deadline)
+        if (currentDate.before(date))
+        {
+            holder.cardView.setCardBackgroundColor(Color.parseColor("#1F1D36"))
+            holder.statusTextView.text = "task is past the date"
+        }
+
 
         when (status) {
             "Open" -> holder.cardView.setBackgroundColor(Color.parseColor("#0A9396"))

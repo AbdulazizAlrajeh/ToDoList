@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
@@ -33,12 +34,17 @@ class MainFragment : Fragment() {
 
         val imageView :ImageView = view.findViewById(R.id.todolist_imageView)
         val displayMyList: Button = view.findViewById(R.id.viewmylist_button)
+        var textFilterStatus:TextView = view.findViewById(R.id.filterstatus_textView)
         var filter_status :Spinner = view.findViewById(R.id.filter_status_spinner)
+        var filter_category:Spinner = view.findViewById(R.id.categoryfilter_spinner)
+        var textFilterCategory:TextView = view.findViewById(R.id.categoryfilter_textView)
 
 
 
         displayMyList.setOnClickListener(){
             toDoViewModel.status = filter_status.selectedItem.toString()
+            toDoViewModel.category = filter_category.selectedItem.toString()
+
             findNavController().navigate(R.id.action_mainFragment_to_displayListFragment)
         }
     }
