@@ -1,6 +1,7 @@
 package com.example.todolist.adapters
 
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.TextureView
 import android.view.View
@@ -52,22 +53,22 @@ class ToDoListAdapter(val listToDo:List<ItemModel>,val viewModel: ToDoViewModel)
 
 
         var currentDate = Date()
-        var deadline = positionItem.deadline
         val format = SimpleDateFormat("yyyy/MM/dd")
         val date = format.parse(positionItem.deadline)
-        if (currentDate.before(date))
+
+        if (currentDate > date)
         {
-            holder.cardView.setCardBackgroundColor(Color.parseColor("#1F1D36"))
+            holder.cardView.setCardBackgroundColor(Color.parseColor("#090910"))
             holder.statusTextView.text = "task is past the date"
+        }else
+        {
+            when (status) {
+                "Open" -> holder.cardView.setBackgroundColor(Color.parseColor("#0A9396"))
+                "In process" -> holder.cardView.setBackgroundColor(Color.parseColor("#FFD60A"))
+                "Done" -> holder.cardView.setBackgroundColor(Color.parseColor("#AE2012"))
+            }
+
         }
-
-
-        when (status) {
-            "Open" -> holder.cardView.setBackgroundColor(Color.parseColor("#0A9396"))
-            "In process" -> holder.cardView.setBackgroundColor(Color.parseColor("#FFD60A"))
-            "Done" -> holder.cardView.setBackgroundColor(Color.parseColor("#AE2012"))
-        }
-
         holder.itemView.setOnClickListener{
             viewModel.selectedItemMutableLiveData.postValue(positionItem)
             it.findNavController().navigate(R.id.action_displayListFragment_to_detailsItemFragment)

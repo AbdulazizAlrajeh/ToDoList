@@ -38,7 +38,6 @@ class DisplayListFragment : Fragment() {
         val toDoListAdapter = ToDoListAdapter(toDoItems,toDoViewModel)
         toDoRecycleView.adapter = toDoListAdapter
 
-       // toDoViewModel.toDoItem = toDoViewModel.getItem()
         toDoViewModel.getItem().observe(viewLifecycleOwner, Observer {
             it?.let {items ->
                 toDoItems.clear()
@@ -47,6 +46,7 @@ class DisplayListFragment : Fragment() {
 
             }
         })
+
 
 
         addFloatingActionButton.setOnClickListener(){

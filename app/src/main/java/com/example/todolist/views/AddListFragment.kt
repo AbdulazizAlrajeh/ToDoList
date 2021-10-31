@@ -49,7 +49,7 @@ class AddListFragment : Fragment() {
         val datePicker = DatePickerDialog(requireActivity())
         datePicker.setOnDateSetListener { view, year, month, dayOfMonth ->
 
-            addDeadline.setText("$year/$month/$dayOfMonth")
+            addDeadline.setText("$year/${month+1}/$dayOfMonth")
         }
 
 
@@ -58,13 +58,13 @@ class AddListFragment : Fragment() {
 
             datePicker.show()
         }
-        var format = SimpleDateFormat("yyyy/mm/dd")
+        var format = SimpleDateFormat("yyyy/MM/dd")
         var currentDate = format.format(Date())
 
         addSave.setOnClickListener(){
             var titleName = addTitle.text.toString()
             var description = addDescription.text.toString()
-            var deadline = "${datePicker.datePicker.year}/${datePicker.datePicker.month}/${datePicker.datePicker.dayOfMonth}"
+            var deadline = "${datePicker.datePicker.year}/${datePicker.datePicker.month+1}/${datePicker.datePicker.dayOfMonth}"
             var category = addCategoryToList.selectedItem.toString()
             var currentDate = currentDate
 

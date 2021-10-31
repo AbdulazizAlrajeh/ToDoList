@@ -1,5 +1,7 @@
 package com.example.todolist.views
 
+import android.app.DatePickerDialog
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -30,6 +33,7 @@ class EditItemFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_edit_item, container, false)
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -55,6 +59,18 @@ class EditItemFragment : Fragment() {
             }
         })
 
+        val datePicker = DatePickerDialog(requireActivity())
+        datePicker.setOnDateSetListener { view, year, month, dayOfMonth ->
+
+            dataDeadlineDetailsTextView.setText("$year/$month/$dayOfMonth")
+        }
+
+
+
+        dataDeadlineDetailsTextView.setOnClickListener {
+
+            datePicker.show()
+        }
 
         saveEditButtonView.setOnClickListener {
 
