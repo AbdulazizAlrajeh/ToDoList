@@ -36,7 +36,7 @@ class DisplayListFragment : Fragment() {
         val addFloatingActionButton: FloatingActionButton = view.findViewById(R.id.addtodolist_button)
         val sortedListButtonView:Button = view.findViewById(R.id.button)
 
-        val toDoListAdapter = ToDoListAdapter(toDoItems,toDoViewModel)
+        val toDoListAdapter = ToDoListAdapter(toDoItems,toDoViewModel,requireContext())
         toDoRecycleView.adapter = toDoListAdapter
         // For display list
         toDoViewModel.getItem().observe(viewLifecycleOwner, Observer {

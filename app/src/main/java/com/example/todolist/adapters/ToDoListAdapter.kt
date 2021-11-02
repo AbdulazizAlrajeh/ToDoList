@@ -1,11 +1,15 @@
 package com.example.todolist.adapters
 
+import android.content.Context
 import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.activityViewModels
@@ -20,7 +24,7 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-class ToDoListAdapter(val listToDo:List<ItemModel>,val viewModel: ToDoViewModel)
+class ToDoListAdapter(val listToDo:List<ItemModel>,val viewModel: ToDoViewModel,val context: Context)
     :RecyclerView.Adapter<ToDoListAdapter.ViewHolderItem> (){
 
         class ViewHolderItem(view: View):RecyclerView.ViewHolder(view){
@@ -28,7 +32,7 @@ class ToDoListAdapter(val listToDo:List<ItemModel>,val viewModel: ToDoViewModel)
             val titleItemTextView :TextView = view.findViewById(R.id.title_display_textView)
             val descriptionItemTextView:TextView = view.findViewById(R.id.description_display_textView)
             val dateDeadlineTextView :TextView = view.findViewById(R.id.data_display_textView)
-            val statusTextView:TextView = view.findViewById(R.id.status_textView)
+            val statusTextView:Spinner = view.findViewById(R.id.status_textView)
             val cardView :CardView = view.findViewById(R.id.display_linearLayout)
 
         }
@@ -48,9 +52,46 @@ class ToDoListAdapter(val listToDo:List<ItemModel>,val viewModel: ToDoViewModel)
         holder.titleItemTextView.text = positionItem.title
         holder.descriptionItemTextView.text = positionItem.description
         holder.dateDeadlineTextView.text = "Deadline At: ${ positionItem.deadline }"
-        holder.statusTextView.text = positionItem.status
-        var status = holder.statusTextView.text.toString()
 
+        val adapter = ArrayAdapter.createFromResource(
+            context,
+            R.array.status,
+            android.R.layout.simple_spinner_item
+        )
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        holder.statusTextView.adapter = adapter
+        holder.statusTextView.setSelection(context.resources.getStringArray(R.array.status).indexOf(positionItem.status))
+        var selected = false
+
+        holder.statusTextView.onItemSelectedListener = object : AdapterView.OnItemSelectedListener,
+            AdapterView.OnItemClickListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                if (selected){
+                    positionItem.status = adapter.getItem(position).toString()
+                    viewModel.updateItem(positionItem)
+                }
+                selected = true
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+            override fun onItemClick(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                TODO("Not yet implemented")
+            }
+        }
 
         // This variable for take current date
         var currentDate = Date()
@@ -61,10 +102,10 @@ class ToDoListAdapter(val listToDo:List<ItemModel>,val viewModel: ToDoViewModel)
         if (currentDate > date)
         {
             holder.cardView.setCardBackgroundColor(Color.parseColor("#d9cab3"))
-            holder.statusTextView.text = "task is past the date"
+
         }else
         {
-            when (status) {
+            when (positionItem.status) {
                 "Open" -> holder.cardView.setCardBackgroundColor(Color.parseColor("#9dcee2"))
                 "In process" -> holder.cardView.setCardBackgroundColor(Color.parseColor("#4091c9"))
                 "Done" -> holder.cardView.setCardBackgroundColor(Color.parseColor("#1368aa"))
