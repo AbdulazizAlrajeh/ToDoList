@@ -29,7 +29,7 @@ class ToDoListAdapter(val listToDo:List<ItemModel>,val viewModel: ToDoViewModel)
             val descriptionItemTextView:TextView = view.findViewById(R.id.description_display_textView)
             val dateDeadlineTextView :TextView = view.findViewById(R.id.data_display_textView)
             val statusTextView:TextView = view.findViewById(R.id.status_textView)
-            val cardView :CardView = view.findViewById(R.id.item_cardview)
+            val cardView :CardView = view.findViewById(R.id.display_linearLayout)
 
         }
 
@@ -47,7 +47,7 @@ class ToDoListAdapter(val listToDo:List<ItemModel>,val viewModel: ToDoViewModel)
        val positionItem = listToDo[position]
         holder.titleItemTextView.text = positionItem.title
         holder.descriptionItemTextView.text = positionItem.description
-        holder.dateDeadlineTextView.text = positionItem.deadline
+        holder.dateDeadlineTextView.text = "Deadline At: ${ positionItem.deadline }"
         holder.statusTextView.text = positionItem.status
         var status = holder.statusTextView.text.toString()
 
@@ -60,14 +60,14 @@ class ToDoListAdapter(val listToDo:List<ItemModel>,val viewModel: ToDoViewModel)
 
         if (currentDate > date)
         {
-            holder.cardView.setCardBackgroundColor(Color.parseColor("#090910"))
+            holder.cardView.setCardBackgroundColor(Color.parseColor("#d9cab3"))
             holder.statusTextView.text = "task is past the date"
         }else
         {
             when (status) {
-                "Open" -> holder.cardView.setBackgroundColor(Color.parseColor("#0A9396"))
-                "In process" -> holder.cardView.setBackgroundColor(Color.parseColor("#FFD60A"))
-                "Done" -> holder.cardView.setBackgroundColor(Color.parseColor("#AE2012"))
+                "Open" -> holder.cardView.setCardBackgroundColor(Color.parseColor("#9dcee2"))
+                "In process" -> holder.cardView.setCardBackgroundColor(Color.parseColor("#4091c9"))
+                "Done" -> holder.cardView.setCardBackgroundColor(Color.parseColor("#1368aa"))
             }
 
         }

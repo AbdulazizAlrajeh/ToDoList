@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -33,7 +34,7 @@ class DisplayListFragment : Fragment() {
 
         val toDoRecycleView: RecyclerView = view.findViewById(R.id.recycleview_todolist_display)
         val addFloatingActionButton: FloatingActionButton = view.findViewById(R.id.addtodolist_button)
-
+        val sortedListButtonView:Button = view.findViewById(R.id.button)
 
         val toDoListAdapter = ToDoListAdapter(toDoItems,toDoViewModel)
         toDoRecycleView.adapter = toDoListAdapter
@@ -42,10 +43,18 @@ class DisplayListFragment : Fragment() {
             it?.let {items ->
                 toDoItems.clear()
                 toDoItems.addAll(items)
+
+
                 toDoListAdapter.notifyDataSetChanged()
 
             }
         })
+
+        sortedListButtonView.setOnClickListener {
+
+            toDoItems.sortBy { it.title  }
+            toDoListAdapter.notifyDataSetChanged()
+        }
 
 
 

@@ -5,8 +5,8 @@
     android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#005F73"
-    android:backgroundTint="#6671C9DC"
+    android:background="#334CAF50"
+    android:backgroundTint="#B94CAF50"
     tools:context=".views.EditItemFragment">
 
     <Spinner
@@ -44,8 +44,9 @@
         android:layout_marginStart="64dp"
         android:layout_marginEnd="64dp"
         android:layout_marginBottom="64dp"
-        android:backgroundTint="#AE2012"
+        android:backgroundTint="#005F73"
         android:text="Deletw ToDo"
+        android:textColor="#EC0A0A"
         app:cornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
