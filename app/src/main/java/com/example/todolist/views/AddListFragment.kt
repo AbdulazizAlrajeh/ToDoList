@@ -45,7 +45,7 @@ class AddListFragment : Fragment() {
         var addCategoryToList:Spinner = view.findViewById(R.id.category_spinner)
         val addSave :Button = view.findViewById(R.id.saveaddd_button)
 
-
+        // For show the calender
         val datePicker = DatePickerDialog(requireActivity())
         datePicker.setOnDateSetListener { view, year, month, dayOfMonth ->
 
@@ -61,6 +61,8 @@ class AddListFragment : Fragment() {
         var format = SimpleDateFormat("yyyy/MM/dd")
         var currentDate = format.format(Date())
 
+
+        // For add item to database when click the button
         addSave.setOnClickListener(){
             var titleName = addTitle.text.toString()
             var description = addDescription.text.toString()

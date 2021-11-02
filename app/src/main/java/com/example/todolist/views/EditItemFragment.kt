@@ -43,6 +43,8 @@ class EditItemFragment : Fragment() {
         var statusEditSpinner:Spinner = view.findViewById(R.id.edit_spinner)
         var saveEditButtonView :Button = view.findViewById(R.id.saveedit_button)
         var deleteButtonView :Button = view.findViewById(R.id.deleteedit_button)
+
+        // For edit item when his before saved
         toDoViewModel.selectedItemMutableLiveData.observe(viewLifecycleOwner, Observer {
             it?.let {
                 titleDetailsItemTextView.text = it.title
@@ -72,6 +74,7 @@ class EditItemFragment : Fragment() {
             datePicker.show()
         }
 
+        // For save the update item
         saveEditButtonView.setOnClickListener {
 
             selectItemModel.title = titleDetailsItemTextView.text.toString()
@@ -83,7 +86,7 @@ class EditItemFragment : Fragment() {
         }
 
 
-
+        // For delete the item
         deleteButtonView.setOnClickListener {
             toDoViewModel.deleteItem(selectItemModel)
             findNavController().navigate(R.id.action_editItemFragment_to_displayListFragment)

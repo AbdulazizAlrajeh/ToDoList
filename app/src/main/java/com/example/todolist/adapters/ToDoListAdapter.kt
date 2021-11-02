@@ -22,6 +22,7 @@ import java.util.*
 
 class ToDoListAdapter(val listToDo:List<ItemModel>,val viewModel: ToDoViewModel)
     :RecyclerView.Adapter<ToDoListAdapter.ViewHolderItem> (){
+
         class ViewHolderItem(view: View):RecyclerView.ViewHolder(view){
 
             val titleItemTextView :TextView = view.findViewById(R.id.title_display_textView)
@@ -51,8 +52,9 @@ class ToDoListAdapter(val listToDo:List<ItemModel>,val viewModel: ToDoViewModel)
         var status = holder.statusTextView.text.toString()
 
 
-
+        // This variable for take current date
         var currentDate = Date()
+        // Format for create date the same format I declare
         val format = SimpleDateFormat("yyyy/MM/dd")
         val date = format.parse(positionItem.deadline)
 
@@ -69,11 +71,12 @@ class ToDoListAdapter(val listToDo:List<ItemModel>,val viewModel: ToDoViewModel)
             }
 
         }
+        // post value to liveData to send data from the Display list fragment to Details item fragment
         holder.itemView.setOnClickListener{
             viewModel.selectedItemMutableLiveData.postValue(positionItem)
             it.findNavController().navigate(R.id.action_displayListFragment_to_detailsItemFragment)
         }
     }
-
+    // Calls this method to get the size of the data set.
     override fun getItemCount(): Int =listToDo.size
 }

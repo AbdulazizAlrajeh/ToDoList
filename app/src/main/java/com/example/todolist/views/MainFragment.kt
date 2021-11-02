@@ -40,7 +40,7 @@ class MainFragment : Fragment() {
         var textFilterCategory:TextView = view.findViewById(R.id.categoryfilter_textView)
 
 
-
+        // For display list todolist
         displayMyList.setOnClickListener(){
             toDoViewModel.status = filter_status.selectedItem.toString()
             toDoViewModel.category = filter_category.selectedItem.toString()

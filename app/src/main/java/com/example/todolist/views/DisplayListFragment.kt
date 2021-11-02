@@ -37,7 +37,7 @@ class DisplayListFragment : Fragment() {
 
         val toDoListAdapter = ToDoListAdapter(toDoItems,toDoViewModel)
         toDoRecycleView.adapter = toDoListAdapter
-
+        // For display list
         toDoViewModel.getItem().observe(viewLifecycleOwner, Observer {
             it?.let {items ->
                 toDoItems.clear()

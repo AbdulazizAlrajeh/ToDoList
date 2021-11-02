@@ -38,6 +38,7 @@ class DetailsItemFragment : Fragment() {
         var createdDateTextView:TextView = view.findViewById(R.id.createddata_textView)
         var categoryTextView:TextView = view.findViewById(R.id.cotegory_textView)
 
+        // For display details of item
         toDoViewModel.selectedItemMutableLiveData.observe(viewLifecycleOwner, Observer {
             it?.let {
                 categoryTextView.text = it.category
@@ -50,6 +51,8 @@ class DetailsItemFragment : Fragment() {
             }
         })
 
+
+        // When need edit item
         editButtonViewDetails.setOnClickListener {
 
             toDoViewModel.selectedItemMutableLiveData.postValue(selectItemModel)

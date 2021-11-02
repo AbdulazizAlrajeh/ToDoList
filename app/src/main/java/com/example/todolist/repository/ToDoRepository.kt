@@ -9,6 +9,10 @@ import java.lang.Exception
 
 private const val databaseName = "To Do List"
 class ToDoRepository(context: Context) {
+    /*
+     * After defined the data entity,the DAO, and the database,
+     * you can use the code to create an instance of the database
+     * */
     private val database:ToDoDatabase =
         Room.databaseBuilder(
             context,
@@ -26,6 +30,7 @@ class ToDoRepository(context: Context) {
     fun filterCategory(category:String) = toDoDao.filterCategory(category)
     fun filterStatus (status:String) = toDoDao.filterStatus(status)
 
+    // this companion object for the instantiation of a class to one "single" instance.
     companion object{
         private var instance :ToDoRepository? = null
 
