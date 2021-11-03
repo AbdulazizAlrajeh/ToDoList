@@ -7,17 +7,24 @@ ToDo list is a simple tool that helps you keep track of your daily obligations s
 2. [kotlin programming language][3]
 3. [Figma][4]
 ## User Stories
-1. I want to add tasks to the TODO LIST app so that the user may organize his time and save what he wants to do.
-2. As a TODO LIST app, I want to show the user the content of the previously written task by displaying the item from the list.
-3. As a TODO LIST app, I'd like to be able to update tasks from the list, allowing the user to change the content of previously typed tasks.
-4. As a TODO LIST app, I want to be able to delete a task from the list so that the user can delete the task and what it contains.
-5. I'd like to update the profession status in a TODO LIST app so that the user may see if a task has been finished.
-6. As a TODO LIST app, I'd like to be able to filter my task list so that the user can see what he wants from all of his chores.
-7. As a TODO LIST app, I'd like to order my list of tasks alphabetically so that the user can find what he's looking for.
+1. As a user, I'd like to add tasks to a list in order to better organize my time and save what I want to accomplish.
+2. As a user, I'd like to select a task from the list and view the content of the previously completed work.
+3. As a user, I'd want to modify a task from the list in order to change the text of a previously written task.
+4. As a user, I want to remove the job from the list, as well as the contents of the previously typed task.
+5. I'd like to update my profession status as a user so that I can see if a task has been done.
+6. As a user, I'd like to be able to filter my task list so that I can see only the tasks that I'm interested in.
+7. As the user, I'd like to order my task list alphabetically.
 ## Planning Development 
-I began with a basic design, then created coding for this project, and finally updated the design with the Figma application.
+I started with a simple design in Figma, then coded for this project, and then updated the design in Android Studio.
+
+Figma Screenshot
+---|
+
+<img width="476" alt="figma" src="https://user-images.githubusercontent.com/91452316/140039824-bd0eddff-af80-4cab-bbd4-3a9187d0447c.png">
 
 
+## Problem-Solving Strategy
+If I have an issue, I look for a solution on the internet, and if I can't find one, I consult an expert.
 
 ## Future Functions
 1. Send a notification to use if the deadline task is due today.
