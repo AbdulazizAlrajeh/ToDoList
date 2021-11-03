@@ -25,20 +25,7 @@ Simple Design Figma Screenshot
 <img width="476" alt="figma" src="https://user-images.githubusercontent.com/91452316/140039824-bd0eddff-af80-4cab-bbd4-3a9187d0447c.png">
 
 
-## Problem-Solving Strategy
-If I have an issue, I look for a solution on the internet, and if I can't find one, I consult an expert.
 
-## Future Functions
-1. Send a notification to use if the deadline task is due today.
-2. Can add a place and send a notification to his user when he gets close to that location.
-3. Update the design for the task of adding and displaying items.
-## Favorite Functions
-1. Task creation - The user can create as many tasks as he wants.
-2. Current date of creation - When a user adds a task, the app automatically sends the current data to the database.
-3. Display task - The title, description, deadline, and creation date can all be displayed.
-4. Edit task - The user can make changes to any task he or she wants.
-5. Delete task - The user has the ability to delete any task he or she want.
-6. Filter - The list can be sorted by status and category.
 ## ScreenShots
 The screenshots form android studio
 Main Screenshots
@@ -60,6 +47,21 @@ Display Details Screenshot
 Add Task Screenshot
 ---|
 <img width="266" alt="addtask_screen" src="https://user-images.githubusercontent.com/91452316/140030536-915a58db-a301-4e2c-a332-997d44e68a1c.png">
+
+## Problem-Solving Strategy
+If I have an issue, I look for a solution on the internet, and if I can't find one, I consult an expert.
+
+## Future Functions
+1. Send a notification to use if the deadline task is due today.
+2. Can add a place and send a notification to his user when he gets close to that location.
+3. Update the design for the task of adding and displaying items.
+## Favorite Functions
+1. Task creation - The user can create as many tasks as he wants.
+2. Current date of creation - When a user adds a task, the app automatically sends the current data to the database.
+3. Display task - The title, description, deadline, and creation date can all be displayed.
+4. Edit task - The user can make changes to any task he or she wants.
+5. Delete task - The user has the ability to delete any task he or she want.
+6. Filter - The list can be sorted by status and category.
 
 
 [1]:https://developer.android.com/studio?gclid=Cj0KCQjw5oiMBhDtARIsAJi0qk1XynCsLYazXjaGg4jc2c274uQaqPKQVp84TUYHZXFwvJ-UasEAMcwaAhgFEALw_wcB&gclsrc=aw.ds
