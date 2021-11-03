@@ -15,11 +15,11 @@ ToDo list is a simple tool that helps you keep track of your daily obligations s
 6. As a user, I'd like to be able to filter my task list so that I can see only the tasks that I'm interested in.
 7. As the user, I'd like to order my task list alphabetically.
 ## Planning Development 
-I started with a simple design in Figma, then coded for this project, and then updated the design in Android Studio.
+I began by creating a simple design in Figma, then coding for this project, and finally updating the design in Android Studio.
 
 [link for Figma prototype][4]
 
-Figma Screenshot
+Simple Design Figma Screenshot
 ---|
 
 <img width="476" alt="figma" src="https://user-images.githubusercontent.com/91452316/140039824-bd0eddff-af80-4cab-bbd4-3a9187d0447c.png">
