@@ -3,9 +3,9 @@
 # ToDoList
 ToDo list is a simple tool that helps you keep track of your daily obligations so you don't forget anything.
 ## List Technologies Used
-1. [Android Studio][2]
-2. [kotlin programming language][3]
-3. [Figma][4]
+1. [Android Studio][1]
+2. [kotlin programming language][2]
+3. [Figma][3]
 ## User Stories
 1. As a user, I'd like to add tasks to a list in order to better organize my time and save what I want to accomplish.
 2. As a user, I'd like to select a task from the list and view the content of the previously completed work.
@@ -16,6 +16,8 @@ ToDo list is a simple tool that helps you keep track of your daily obligations s
 7. As the user, I'd like to order my task list alphabetically.
 ## Planning Development 
 I started with a simple design in Figma, then coded for this project, and then updated the design in Android Studio.
+
+[link for Figma prototype][4]
 
 Figma Screenshot
 ---|
@@ -60,6 +62,8 @@ Add Task Screenshot
 <img width="266" alt="addtask_screen" src="https://user-images.githubusercontent.com/91452316/140030536-915a58db-a301-4e2c-a332-997d44e68a1c.png">
 
 
-[2]:https://developer.android.com/studio?gclid=Cj0KCQjw5oiMBhDtARIsAJi0qk1XynCsLYazXjaGg4jc2c274uQaqPKQVp84TUYHZXFwvJ-UasEAMcwaAhgFEALw_wcB&gclsrc=aw.ds
-[3]:https://developer.android.com/kotlin?gclid=Cj0KCQjw5oiMBhDtARIsAJi0qk0fRhPxeSoiv1myXTAbN7aXUWM2TrSZI-6JL_uYbnfT0XDm4-FIeZAaAvnaEALw_wcB&gclsrc=aw.ds
-[4]:https://www.figma.com/
+[1]:https://developer.android.com/studio?gclid=Cj0KCQjw5oiMBhDtARIsAJi0qk1XynCsLYazXjaGg4jc2c274uQaqPKQVp84TUYHZXFwvJ-UasEAMcwaAhgFEALw_wcB&gclsrc=aw.ds
+[2]:https://developer.android.com/kotlin?gclid=Cj0KCQjw5oiMBhDtARIsAJi0qk0fRhPxeSoiv1myXTAbN7aXUWM2TrSZI-6JL_uYbnfT0XDm4-FIeZAaAvnaEALw_wcB&gclsrc=aw.ds
+[3]:https://www.figma.com/
+[4]:https://www.figma.com/proto/x2GDWK1k9KbvvT7XOQAcsJ/Untitled?page-id=0%3A1&node-id=2%3A2&viewport=241%2C48%2C0.5&scaling=scale-down&starting-point-node-id=2%3A2&show-proto-sidebar=1
+
